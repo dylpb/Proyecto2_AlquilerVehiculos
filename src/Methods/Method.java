@@ -7,15 +7,16 @@ package Methods;
 /**
  *
  * @author Dylan
+ * @param <T>
  */
-public interface Method {
+public interface Method<T> {
     
-    public void add();
+    public boolean add(T t);
     
-    public void update();
+    public boolean update(T t);
     
-    public void delete();
+    public boolean delete(T t);
     
-    public void search();
+    public T search(Object id);
     
 }

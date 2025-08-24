@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author Dylan
  */
-public class ClientManagement implements Method{
+public class ClientManagement implements Method<Clients>{
     
     List <Clients> listC;
 
@@ -21,26 +21,55 @@ public class ClientManagement implements Method{
         this.listC = new ArrayList<>();
     }
     
-
-    public void add(Clients newclient) {
+//------------AGREGAR
+    @Override
+    public boolean add(Clients newclient) {
         if (newclient != null) {
         listC.add(newclient);
+        return true;
+        }
+        return false;
+    }
+//------------ACTUALIZAR
+    @Override
+    public boolean update(Clients updatedClient) {
+        if (updatedClient == null) {
+         return false;  //no hace nada si es nulo
+        }
+    Clients clientExists = search(updatedClient.getId());
+    
+    if (clientExists != null) {
+        clientExists.setPhone(updatedClient.getPhone());
+        clientExists.setEmail(updatedClient.getEmail());
+        clientExists.setLicense(updatedClient.getLicense());
+    }
+        return false;
+}
+//------------ELIMINAR
+    @Override
+    public boolean delete(Clients deletedClient) {
+        if (deletedClient == null) {
+         return false;  //no hace nada si es nulo
+        }
+    Clients clientExists = search(deletedClient.getId());
+    
+    if (clientExists != null) {
+        listC.remove(clientExists);   
+        }   
+        return true;
+    }
+//------------BUSCAR  
+    @Override
+    public Clients search(Object id) {
+    if (id instanceof Integer clientId) { // Conversión segura a Integer
+        for (Clients client : listC) {
+            if (client.getId() == clientId) {
+                return client;
+            }
         }
     }
-
-    public void update(String license, String phone, String email) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void delete() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void search() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    return null;
+}
     
 
-}
+    }//------------FINAL LINEA

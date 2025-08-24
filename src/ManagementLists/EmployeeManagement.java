@@ -13,29 +13,65 @@ import java.util.List;
  *
  * @author Dylan
  */
-public class EmployeeManagement implements Method{
+public class EmployeeManagement implements Method<Employees>{
     
-    List <Employees> listE = new ArrayList <> ();
-
-    @Override
-    public void add() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    List <Employees> listE;
+    
+        public EmployeeManagement() {
+        this.listE = new ArrayList<>();
     }
+    
 
+//------------AGREGAR
     @Override
-    public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean add(Employees newemployee) {
+        if (newemployee != null) {
+        listE.add(newemployee);
+        return true;
+        }
+        return false;
     }
-
+//------------ACTUALIZAR
     @Override
-    public void delete() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean update(Employees updatedemployee) {
+        if (updatedemployee == null) {
+         return false;  //no hace nada si es nulo
+        }
+    Employees employeeExists = search(updatedemployee.getId());
+    
+    if (employeeExists != null) {
+        employeeExists.setPhone(updatedemployee.getPhone());
+        employeeExists.setEmail(updatedemployee.getEmail());
+        employeeExists.setPosition(updatedemployee.getPosition());
+        employeeExists.setSalary(updatedemployee.getSalary());
     }
-
+        return false;
+}
+//------------ELIMINAR
     @Override
-    public void search() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public boolean delete(Employees deletedemployee) {
+        if (deletedemployee == null) {
+         return false;  //no hace nada si es nulo
+        }
+    Employees employeeExists = search(deletedemployee.getId());
+    
+    if (employeeExists != null) {
+        listE.remove(employeeExists);   
+        }   
+        return true;
     }
+//------------BUSCAR  
+    @Override
+    public Employees search(Object id) {
+    if (id instanceof Integer employeeId) { // Conversión segura a Integer
+        for (Employees employee : listE) {
+            if (employee.getId() == employeeId) {
+                return employee;
+            }
+        }
+    }
+    return null;
+}
     
     
 }
