@@ -24,11 +24,11 @@ public class ClientManagement implements Method<Clients>{
 //------------AGREGAR
     @Override
     public boolean add(Clients newclient) {
-        if (newclient != null) {
+        if (search(newclient.getId()) != null) {
+            return false;
+        }
         listC.add(newclient);
         return true;
-        }
-        return false;
     }
 //------------ACTUALIZAR
     @Override
@@ -42,6 +42,7 @@ public class ClientManagement implements Method<Clients>{
         clientExists.setPhone(updatedClient.getPhone());
         clientExists.setEmail(updatedClient.getEmail());
         clientExists.setLicense(updatedClient.getLicense());
+        return true;
     }
         return false;
 }
@@ -54,10 +55,11 @@ public class ClientManagement implements Method<Clients>{
     Clients clientExists = search(deletedClient.getId());
     
     if (clientExists != null) {
-        listC.remove(clientExists);   
-        }   
+        listC.remove(clientExists); 
         return true;
-    }
+    }   
+return false;
+}
 //------------BUSCAR  
     @Override
     public Clients search(Object id) {

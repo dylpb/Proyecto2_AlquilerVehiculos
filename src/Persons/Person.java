@@ -30,8 +30,10 @@ public abstract class Person {
     }
 
     public void setPhone(String phone) {
-        if (validatePhone(phone))
-            this.phone = phone;
+        if (phone == null || phone.isBlank() || !validatePhone(phone)){
+            throw new IllegalArgumentException("El formato del teléfono es incorrecto, digite solo 8 números.");
+        }
+        this.phone = phone;
     }
     
     private static boolean validatePhone(String phone){
@@ -43,9 +45,11 @@ public abstract class Person {
     }
 
     public void setEmail(String email) {
-        if (validateEmail(email))
-            this.email = email;
-    }
+        if (email==null || email.isBlank() || !validateEmail(email)){
+        throw new IllegalArgumentException("El formato del email es incorrecto.");
+        }
+        this.email = email;
+    }//validar email y telefono
     
     private static boolean validateEmail(String email){
         return email.matches("^[^@]+@[^@]+\\.[a-zA-Z]{2,}$");
@@ -60,14 +64,26 @@ public abstract class Person {
     }    
 
     public Person(int id, String name, String phone, String email, LocalDate birthDate) {
+        if (id<=0) {
+        throw new IllegalArgumentException("Digite un ID válido.");
+        }        
+        if (name == null || name.isBlank()) {
+        throw new IllegalArgumentException("Digite un nombre correcto,no puedo estar vacio.");
+        }
+        if(phone == null || phone.isBlank() || !validatePhone(phone)){
+        throw new IllegalArgumentException("El formato del teléfono es incorrecto, digite solo 8 números.");
+        }
+        if(email == null || email.isBlank() || !validateEmail(email)){
+        throw new IllegalArgumentException("El formato del email es incorrecto.");
+        }
+        if (birthDate == null || !UtilDate.isNotFutureDate(birthDate) || !UtilDate.isLegalAge(birthDate)){
+        throw new IllegalArgumentException("La fecha de nacimiento es incorrecta.");
+        }
         this.id = id;
         this.name = name;
-        if(validatePhone(phone))
-            this.phone = phone;
-        if(validateEmail(email))
-            this.email = email;        
-        if (UtilDate.isNotFutureDate(birthDate))
-            this.birthDate = birthDate;
+        this.phone = phone;
+        this.email = email;
+        this.birthDate = birthDate;
     }
 
    
