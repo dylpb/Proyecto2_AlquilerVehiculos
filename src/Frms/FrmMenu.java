@@ -575,7 +575,6 @@ try {
         if (encontrado != null) {
             // Abrir el formulario FrmFindEmployee y pasarle el empleado encontrado
             
-           
         } else {
             throw new Exception("No se encontró ningún empleado con esa cédula.");
         }

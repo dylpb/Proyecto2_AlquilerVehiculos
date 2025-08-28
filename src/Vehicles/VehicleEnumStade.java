@@ -9,5 +9,7 @@ package Vehicles;
  * @author bycha
  */
 public enum VehicleEnumStade {
-    Disponible,En_Alquiler,En_Mantenimiento
+   AVAILABLE,
+    NOT_AVAILABLE,
+    IN_SERVICE  
 }

@@ -19,9 +19,7 @@ public class FrmFindEmployee extends javax.swing.JFrame {
      */
     public FrmFindEmployee(){
         initComponents();
-            this.employee = employee;
-        this.management = management;
-        this.model = model;   
+      
     }
 
     /**
