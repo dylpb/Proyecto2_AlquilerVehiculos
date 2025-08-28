@@ -8,6 +8,6 @@ package Vehicles;
  *
  * @author bycha
  */
-public enum EnumEstado {
+public enum VehicleEnumStade {
     Disponible,En_Alquiler,En_Mantenimiento
 }

@@ -8,7 +8,7 @@ package Vehicles;
  *
  * @author bycha
  */
-public enum EnumTipos {
+public enum VehicleTypeEnum {
     Default,Pick_up,Camioneta,Deportivo,Crossover,Sedán,Furgoneta,
     Urbano,SUV,Monovolumen,Compacto,Descapotable,Cupé,Hatchback,
     Minivan,Berlina

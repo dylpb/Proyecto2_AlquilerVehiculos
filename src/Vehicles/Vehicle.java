@@ -1,88 +1,85 @@
 
 package Vehicles;
 
-import Vehicles.EnumEstado;
-import Vehicles.EnumMarca;
-import Vehicles.EnumTipos;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.Year;
+
+
 
 public class Vehicle {
+   private String plate;   //  P L A CA
+    private String brand;
+    private String model;
+    private int year;
+    private VehicleTypeEnum type;  
+    private VehicleEnumStade status;
 
-        private EnumMarca marca;
-        private String modelo;
-        private int año;
-        private EnumTipos tipo;
-        private EnumEstado estado;
-
-    public Vehicle(EnumMarca marca, String modelo, int año, EnumTipos tipo, EnumEstado estado) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.año = año;
-        this.tipo = tipo;
-        this.estado = estado;
+ public Vehicle(String plate, String brand, String model, int year, VehicleTypeEnum type, VehicleEnumStade status) throws Exception {
+        this.plate = plate;
+        this.brand = brand;
+        this.model = model;
+        setYear(year);   // validación incluida en el setter
+        setType(type);   // validación incluida en el setter
+        setStatus(status); // validación incluida en el setter
     }
-
-    public EnumMarca getMarca() {
-        return marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public int getAño() {
-        return año;
-    }
-
-    public EnumTipos getTipo() {
-        return tipo;
-    }
-
-    public EnumEstado getEstado() {
-        return estado;
-    }
-
-    public void setMarca(EnumMarca marca) {
-        this.marca = marca;
-    }
-
-    public void setAño(int año) {
-        this.año = año;
-    }
-
-    public void setTipo(EnumTipos tipo) {
-        this.tipo = tipo;
-    }
-
-    public void setEstado(EnumEstado estado) {
-        this.estado = estado;
-    }
-
-    
-///Para Actualizar
-///
-    modelo modeloAC = new modelo();
-    modeloAc.setModelo();
-    System.out.println("Modelo: " + modeloAc.getModelo());
-    tipo tipoAc = new tipo();
-    tipoAc.setTipo();
-    System.out.println("Tipo: " + tipoAc.getTipo());
-    estado estadoAc = new estado();
-    estadoAc.setEstado();
-    System.out.println("Etado: " + estadoAc.getEstado());
-   
-}
-
 
    
+    public String getPlate() {
+        return plate;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public VehicleTypeEnum getType() {
+        return type;
+    }
+
+    public VehicleEnumStade getStatus() {
+        return status;
+    }
+
+    // Setters con validaciones
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setYear(int year) throws Exception {
+        int currentYear = Year.now().getValue();
+        if (year > currentYear) {
+            throw new Exception("El año no puede ser mayor al actual.");
+        }
+        if (currentYear - year > 20) {
+            throw new Exception("El vehículo no puede tener más de 20 años de antigüedad.");
+        }
+        this.year = year;
+    }
+
+    public void setType(VehicleTypeEnum type) throws Exception {
+        if (type == null) {
+            throw new Exception("El tipo de vehículo es inválido.");
+        }
+        this.type = type;
+    }
+
+    public void setStatus(VehicleEnumStade status) throws Exception {
+        if (status == null) {
+            throw new Exception("El estado del vehículo es inválido.");
+        }
+        this.status = status;
+    }
 
     
-
+    @Override
+    public String toString() {
+        return "Vehículo [Placa: " + plate +  ", Marca: " + brand +  ", Modelo: " + model +  ", Año: " + year + ", Tipo: " + type + ", Estado: " + status + "]";        
+    }
 }
-}
-}
-
-    
-    
-    
