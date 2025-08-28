@@ -64,20 +64,20 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jTextField1" max="32767" attributes="0"/>
-                              <Component id="jTextField2" max="32767" attributes="0"/>
-                              <Component id="jTextField3" max="32767" attributes="0"/>
-                              <Component id="jTextField4" max="32767" attributes="0"/>
-                              <Component id="jTextField6" max="32767" attributes="0"/>
-                              <Component id="jTextField7" pref="342" max="32767" attributes="0"/>
+                              <Component id="txtPhoneClients" max="32767" attributes="0"/>
+                              <Component id="txtNameCients" max="32767" attributes="0"/>
+                              <Component id="txtIDClients" max="32767" attributes="0"/>
+                              <Component id="txtBirthDateClients" max="32767" attributes="0"/>
+                              <Component id="txtemailClients" max="32767" attributes="0"/>
+                              <Component id="txtLicenseCLients" pref="342" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnaddCLients" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jTextField8" pref="289" max="32767" attributes="0"/>
-                          <Component id="jButton1" max="32767" attributes="0"/>
-                          <Component id="jScrollPane2" max="32767" attributes="0"/>
+                          <Component id="txtIdBuscarCLients" pref="289" max="32767" attributes="0"/>
+                          <Component id="btnBuscarClients" max="32767" attributes="0"/>
+                          <Component id="jListClients" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="84" max="32767" attributes="0"/>
                   </Group>
@@ -89,28 +89,28 @@
                       <EmptySpace pref="50" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIDClients" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNameCients" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField4" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBirthDateClients" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPhoneClients" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField6" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtemailClients" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField7" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLicenseCLients" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane2" max="32767" attributes="0"/>
+                          <Component id="jListClients" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBuscarClients" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField8" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtIdBuscarCLients" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jButton2" max="32767" attributes="0"/>
+                          <Component id="btnaddCLients" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   </Group>
@@ -118,61 +118,64 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="jTextField1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="AQUI VA TELEFONO"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="AQUI VA EL NOMBRE"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
+            <Component class="javax.swing.JTextField" name="txtIDClients">
               <Properties>
                 <Property name="text" type="java.lang.String" value="AQUI VA CEDULA"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIDClientsActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField4">
+            <Component class="javax.swing.JTextField" name="txtNameCients">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="AQUI VA EL NOMBRE"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtBirthDateClients">
               <Properties>
                 <Property name="text" type="java.lang.String" value="FECHA DE NACIMIENTO"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtBirthDateClientsActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="txtPhoneClients">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="AQUI VA TELEFONO"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtemailClients">
               <Properties>
                 <Property name="text" type="java.lang.String" value="AQUI VA CORREO"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="txtLicenseCLients">
               <Properties>
                 <Property name="text" type="java.lang.String" value="AQUI VA LICENCIA DE CONDUCIR"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="btnBuscarClients">
               <Properties>
                 <Property name="text" type="java.lang.String" value="USADO PARA BUSCAR"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="txtIdBuscarCLients">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE INGRESA CEDULA PARA BUSCAR A LA PERSONA"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField8ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdBuscarCLientsActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="btnaddCLients">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE USA PARA AGREGAR CLIENTE"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnaddCLientsActionPerformed"/>
+              </Events>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+            <Container class="javax.swing.JScrollPane" name="jListClients">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
@@ -210,20 +213,20 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton4" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnBuscarEmployee" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextField23" min="-2" pref="240" max="-2" attributes="0"/>
+                              <Component id="txtidBuscarEmployee" min="-2" pref="240" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jButton5" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField16" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField17" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField18" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField19" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField20" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField21" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField22" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnaddEmployee" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtidEmployee" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtNameEmployye" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtBirtDateEmployee" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtPhoneEmployee" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtEmailEmployee" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtpositionEmployee" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtSalaryEmployee" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                               <Component id="jScrollPane3" min="-2" pref="261" max="-2" attributes="0"/>
@@ -239,28 +242,28 @@
                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jTextField16" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtidEmployee" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField17" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNameEmployye" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField18" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBirtDateEmployee" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField19" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPhoneEmployee" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField20" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEmailEmployee" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField21" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtpositionEmployee" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField22" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtSalaryEmployee" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButton5" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnaddEmployee" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane3" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace pref="61" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField23" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBuscarEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtidBuscarEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   </Group>
@@ -268,45 +271,48 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="jTextField16">
+            <Component class="javax.swing.JTextField" name="txtidEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE AGREGA CEDULA"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtidEmployeeActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField17">
+            <Component class="javax.swing.JTextField" name="txtNameEmployye">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE AGREGA MOMBRE"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField18">
+            <Component class="javax.swing.JTextField" name="txtBirtDateEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE AGREGA FECHA DE NACIMIENTO"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField19">
+            <Component class="javax.swing.JTextField" name="txtPhoneEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE AGREGA TELEFONO"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField20">
+            <Component class="javax.swing.JTextField" name="txtEmailEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE AGREGA CORREO"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField20ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtEmailEmployeeActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField21">
+            <Component class="javax.swing.JTextField" name="txtpositionEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE AGREGA PUESTO"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField22">
+            <Component class="javax.swing.JTextField" name="txtSalaryEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE AGREGA SALARIO"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="btnBuscarEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="BOTON PARA BUSCAR"/>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -315,13 +321,16 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarEmployeeActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField23">
+            <Component class="javax.swing.JTextField" name="txtidBuscarEmployee">
               <Properties>
                 <Property name="text" type="java.lang.String" value="SE INGRESA CEDULA PARA BUSCAR"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="btnaddEmployee">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI Black" size="12" style="0"/>
@@ -333,6 +342,9 @@
                   </Border>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnaddEmployeeActionPerformed"/>
+              </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane3">
               <AuxValues>

@@ -4,18 +4,34 @@ package Frms;
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import ManagementLists.ClientManagement;
+import Persons.Clients;
+import javax.swing.DefaultListModel;
+import java.time.LocalDate;
+import ManagementLists.EmployeeManagement;
+import Persons.Employees;
 
 /**
  *
  * @author Bella
  */
 public class FrmMenu extends javax.swing.JFrame {
-
+ private ClientManagement clientManagement; 
+    private DefaultListModel<String> modelClients;  
+    private EmployeeManagement employeeManagement; 
+private DefaultListModel<String> modelEmployees;
     /**
      * Creates new form NewJFrame
      */
     public FrmMenu() {
         initComponents();
+         clientManagement = new ClientManagement();
+        modelClients = new DefaultListModel<>();
+        JListclients.setModel(modelClients);
+        
+         employeeManagement = new EmployeeManagement();
+    modelEmployees = new DefaultListModel<>();
+    Listemployees.setModel(modelEmployees);
     }
 
     /**
@@ -29,28 +45,28 @@ public class FrmMenu extends javax.swing.JFrame {
 
         TabGlobal = new javax.swing.JTabbedPane();
         JPClients = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jTextField8 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        txtIDClients = new javax.swing.JTextField();
+        txtNameCients = new javax.swing.JTextField();
+        txtBirthDateClients = new javax.swing.JTextField();
+        txtPhoneClients = new javax.swing.JTextField();
+        txtemailClients = new javax.swing.JTextField();
+        txtLicenseCLients = new javax.swing.JTextField();
+        btnBuscarClients = new javax.swing.JButton();
+        txtIdBuscarCLients = new javax.swing.JTextField();
+        btnaddCLients = new javax.swing.JButton();
+        jListClients = new javax.swing.JScrollPane();
         JListclients = new javax.swing.JList<>();
         JPemployeers = new javax.swing.JPanel();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
-        jTextField21 = new javax.swing.JTextField();
-        jTextField22 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jTextField23 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
+        txtidEmployee = new javax.swing.JTextField();
+        txtNameEmployye = new javax.swing.JTextField();
+        txtBirtDateEmployee = new javax.swing.JTextField();
+        txtPhoneEmployee = new javax.swing.JTextField();
+        txtEmailEmployee = new javax.swing.JTextField();
+        txtpositionEmployee = new javax.swing.JTextField();
+        txtSalaryEmployee = new javax.swing.JTextField();
+        btnBuscarEmployee = new javax.swing.JButton();
+        txtidBuscarEmployee = new javax.swing.JTextField();
+        btnaddEmployee = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         Listemployees = new javax.swing.JList<>();
         JPresevers = new javax.swing.JPanel();
@@ -72,41 +88,46 @@ public class FrmMenu extends javax.swing.JFrame {
         TabGlobal.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.white, null, null));
         TabGlobal.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
 
-        jTextField1.setText("AQUI VA TELEFONO");
-
-        jTextField2.setText("AQUI VA EL NOMBRE");
-
-        jTextField3.setText("AQUI VA CEDULA");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txtIDClients.setText("AQUI VA CEDULA");
+        txtIDClients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txtIDClientsActionPerformed(evt);
             }
         });
 
-        jTextField4.setText("FECHA DE NACIMIENTO");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txtNameCients.setText("AQUI VA EL NOMBRE");
+
+        txtBirthDateClients.setText("FECHA DE NACIMIENTO");
+        txtBirthDateClients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txtBirthDateClientsActionPerformed(evt);
             }
         });
 
-        jTextField6.setText("AQUI VA CORREO");
+        txtPhoneClients.setText("AQUI VA TELEFONO");
 
-        jTextField7.setText("AQUI VA LICENCIA DE CONDUCIR");
+        txtemailClients.setText("AQUI VA CORREO");
 
-        jButton1.setText("USADO PARA BUSCAR");
+        txtLicenseCLients.setText("AQUI VA LICENCIA DE CONDUCIR");
 
-        jTextField8.setText("SE INGRESA CEDULA PARA BUSCAR A LA PERSONA");
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarClients.setText("USADO PARA BUSCAR");
+
+        txtIdBuscarCLients.setText("SE INGRESA CEDULA PARA BUSCAR A LA PERSONA");
+        txtIdBuscarCLients.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                txtIdBuscarCLientsActionPerformed(evt);
             }
         });
 
-        jButton2.setText("SE USA PARA AGREGAR CLIENTE");
+        btnaddCLients.setText("SE USA PARA AGREGAR CLIENTE");
+        btnaddCLients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddCLientsActionPerformed(evt);
+            }
+        });
 
         JListclients.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane2.setViewportView(JListclients);
+        jListClients.setViewportView(JListclients);
 
         javax.swing.GroupLayout JPClientsLayout = new javax.swing.GroupLayout(JPClients);
         JPClients.setLayout(JPClientsLayout);
@@ -116,18 +137,18 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(JPClientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPClientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField1)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField3)
-                        .addComponent(jTextField4)
-                        .addComponent(jTextField6)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
-                    .addComponent(jButton2))
+                        .addComponent(txtPhoneClients)
+                        .addComponent(txtNameCients)
+                        .addComponent(txtIDClients)
+                        .addComponent(txtBirthDateClients)
+                        .addComponent(txtemailClients)
+                        .addComponent(txtLicenseCLients, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE))
+                    .addComponent(btnaddCLients))
                 .addGap(18, 18, 18)
                 .addGroup(JPClientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                    .addComponent(txtIdBuscarCLients, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                    .addComponent(btnBuscarClients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jListClients))
                 .addContainerGap(84, Short.MAX_VALUE))
         );
         JPClientsLayout.setVerticalGroup(
@@ -136,57 +157,72 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap(50, Short.MAX_VALUE)
                 .addGroup(JPClientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JPClientsLayout.createSequentialGroup()
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtIDClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNameCients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBirthDateClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPhoneClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtemailClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2))
+                        .addComponent(txtLicenseCLients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jListClients))
                 .addGap(59, 59, 59)
                 .addGroup(JPClientsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JPClientsLayout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnBuscarClients)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(txtIdBuscarCLients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnaddCLients, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(36, 36, 36))
         );
 
         TabGlobal.addTab("Clients", JPClients);
 
-        jTextField16.setText("SE AGREGA CEDULA");
-
-        jTextField17.setText("SE AGREGA MOMBRE");
-
-        jTextField18.setText("SE AGREGA FECHA DE NACIMIENTO");
-
-        jTextField19.setText("SE AGREGA TELEFONO");
-
-        jTextField20.setText("SE AGREGA CORREO");
-        jTextField20.addActionListener(new java.awt.event.ActionListener() {
+        txtidEmployee.setText("SE AGREGA CEDULA");
+        txtidEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField20ActionPerformed(evt);
+                txtidEmployeeActionPerformed(evt);
             }
         });
 
-        jTextField21.setText("SE AGREGA PUESTO");
+        txtNameEmployye.setText("SE AGREGA MOMBRE");
 
-        jTextField22.setText("SE AGREGA SALARIO");
+        txtBirtDateEmployee.setText("SE AGREGA FECHA DE NACIMIENTO");
 
-        jButton4.setText("BOTON PARA BUSCAR");
-        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtPhoneEmployee.setText("SE AGREGA TELEFONO");
 
-        jTextField23.setText("SE INGRESA CEDULA PARA BUSCAR");
+        txtEmailEmployee.setText("SE AGREGA CORREO");
+        txtEmailEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailEmployeeActionPerformed(evt);
+            }
+        });
 
-        jButton5.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
-        jButton5.setText("BOTON SE USA PARA AGREGAR EMPLEADO");
-        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtpositionEmployee.setText("SE AGREGA PUESTO");
+
+        txtSalaryEmployee.setText("SE AGREGA SALARIO");
+
+        btnBuscarEmployee.setText("BOTON PARA BUSCAR");
+        btnBuscarEmployee.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnBuscarEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarEmployeeActionPerformed(evt);
+            }
+        });
+
+        txtidBuscarEmployee.setText("SE INGRESA CEDULA PARA BUSCAR");
+
+        btnaddEmployee.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
+        btnaddEmployee.setText("BOTON SE USA PARA AGREGAR EMPLEADO");
+        btnaddEmployee.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnaddEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddEmployeeActionPerformed(evt);
+            }
+        });
 
         jScrollPane3.setViewportView(Listemployees);
 
@@ -198,19 +234,19 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(JPemployeersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JPemployeersLayout.createSequentialGroup()
-                        .addComponent(jButton4)
+                        .addComponent(btnBuscarEmployee)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtidBuscarEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(JPemployeersLayout.createSequentialGroup()
                         .addGroup(JPemployeersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField17, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField19, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField20, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField21, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField22, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(btnaddEmployee, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtidEmployee, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNameEmployye, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtBirtDateEmployee, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPhoneEmployee, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmailEmployee, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtpositionEmployee, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSalaryEmployee, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(81, 81, 81)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(130, Short.MAX_VALUE))
@@ -221,26 +257,26 @@ public class FrmMenu extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(JPemployeersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(JPemployeersLayout.createSequentialGroup()
-                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtidEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNameEmployye, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBirtDateEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtPhoneEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEmailEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtpositionEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSalaryEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5))
+                        .addComponent(btnaddEmployee))
                     .addComponent(jScrollPane3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(JPemployeersLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarEmployee)
+                    .addComponent(txtidBuscarEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44))
         );
 
@@ -358,21 +394,110 @@ public class FrmMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txtIDClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDClientsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txtIDClientsActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txtBirthDateClientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBirthDateClientsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txtBirthDateClientsActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void txtIdBuscarCLientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdBuscarCLientsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_txtIdBuscarCLientsActionPerformed
 
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+    private void txtEmailEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailEmployeeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
+    }//GEN-LAST:event_txtEmailEmployeeActionPerformed
+
+    private void btnaddCLientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddCLientsActionPerformed
+try {
+        // Leer valores de los txt
+        int id = Integer.parseInt(txtIDClients.getText().trim());
+        String nombre = txtNameCients.getText().trim();
+        String telefono = txtPhoneClients.getText().trim();
+        String email = txtemailClients.getText().trim();
+        String licencia = txtLicenseCLients.getText().trim();
+        LocalDate nacimiento = LocalDate.parse(txtBirthDateClients.getText().trim()); // formato yyyy-MM-dd
+
+        // Crear cliente
+        Clients nuevo = new Clients(licencia, id, nombre, telefono, email, nacimiento);
+
+        // Agregarlo con clientManagement
+        if (clientManagement.add(nuevo)) {
+            modelClients.addElement(nuevo.getId() + " - " + nuevo.getName() + " (Edad: " + nuevo.getAge() + ")");
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ya existe un cliente con esa cédula.");
+        }
+
+    } catch (Exception ex) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+    }
+
+        
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnaddCLientsActionPerformed
+
+    private void txtidEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidEmployeeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidEmployeeActionPerformed
+
+    private void btnaddEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddEmployeeActionPerformed
+        // TODO add your handling code here:
+        
+      try {
+        // Leer valores de los txt
+        int id = Integer.parseInt(txtidEmployee.getText().trim());
+        String nombre = txtNameEmployye.getText().trim();
+        String telefono = txtPhoneEmployee.getText().trim();
+        String email = txtEmailEmployee.getText().trim();
+        String puesto = txtpositionEmployee.getText().trim();
+        double salario = Double.parseDouble(txtSalaryEmployee.getText().trim());
+        LocalDate nacimiento = LocalDate.parse(txtBirtDateEmployee.getText().trim()); // yyyy-MM-dd
+
+        // Crear empleado
+        Employees nuevo = new Employees(puesto, salario, id, nombre, telefono, email, nacimiento);
+
+        // Agregarlo con employeeManagement
+        if (employeeManagement.add(nuevo)) {
+            modelEmployees.addElement(
+                nuevo.getId() + " - " + nuevo.getName() +
+                " | Puesto: " + nuevo.getPosition() +
+                " | Salario: " + nuevo.getSalary() + "₡"
+            );
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ya existe un empleado con esa cédula.");
+        }
+
+    } catch (Exception ex) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+    }
+  
+    }//GEN-LAST:event_btnaddEmployeeActionPerformed
+
+    private void btnBuscarEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarEmployeeActionPerformed
+        // TODO add your handling code here:
+        
+         try {
+        int id = Integer.parseInt(txtidBuscarEmployee.getText().trim());
+        
+        Employees encontrado = employeeManagement.search(id);
+        
+        if (encontrado != null) {
+            // Abrir el formulario FrmFindEmployee y pasarle el empleado encontrado
+            FrmFindEmployee frm = new FrmFindEmployee(encontrado, employeeManagement, modelEmployees);
+            frm.setVisible(true);
+        } else {
+            throw new Exception("No se encontró ningún empleado con esa cédula.");
+        }
+    } catch (NumberFormatException ex) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Debe ingresar un número válido de cédula.");
+    } catch (Exception ex) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+    }
+        
+    }//GEN-LAST:event_btnBuscarEmployeeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -420,35 +545,35 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JPanel JPresevers;
     private javax.swing.JList<String> Listemployees;
     private javax.swing.JTabbedPane TabGlobal;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnBuscarClients;
+    private javax.swing.JButton btnBuscarEmployee;
+    private javax.swing.JButton btnaddCLients;
+    private javax.swing.JButton btnaddEmployee;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jListClients;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField txtBirtDateEmployee;
+    private javax.swing.JTextField txtBirthDateClients;
+    private javax.swing.JTextField txtEmailEmployee;
+    private javax.swing.JTextField txtIDClients;
+    private javax.swing.JTextField txtIdBuscarCLients;
+    private javax.swing.JTextField txtLicenseCLients;
+    private javax.swing.JTextField txtNameCients;
+    private javax.swing.JTextField txtNameEmployye;
+    private javax.swing.JTextField txtPhoneClients;
+    private javax.swing.JTextField txtPhoneEmployee;
+    private javax.swing.JTextField txtSalaryEmployee;
+    private javax.swing.JTextField txtemailClients;
+    private javax.swing.JTextField txtidBuscarEmployee;
+    private javax.swing.JTextField txtidEmployee;
+    private javax.swing.JTextField txtpositionEmployee;
     // End of variables declaration//GEN-END:variables
 }
