@@ -17,7 +17,7 @@ public class FrmFindEmployee extends javax.swing.JFrame {
     /**
      * Creates new form FrmFindEmployee
      */
-    public FrmFindEmployee(Employees employee, EmployeeManagement management, DefaultListModel<String> model){
+    public FrmFindEmployee(){
         initComponents();
             this.employee = employee;
         this.management = management;
