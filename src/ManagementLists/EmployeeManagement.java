@@ -25,27 +25,28 @@ public class EmployeeManagement implements Method<Employees>{
 //------------AGREGAR
     @Override
     public boolean add(Employees newemployee) {
-        if (newemployee != null) {
-        listE.add(newemployee);
-        return true;
+        if (search(newemployee.getId()) != null) {
+            return false;
         }
-        return false;
+        listE.add(newemployee);
+        return true;  
     }
 //------------ACTUALIZAR
     @Override
     public boolean update(Employees updatedemployee) {
-        if (updatedemployee == null) {
-         return false;  //no hace nada si es nulo
+        if (updatedemployee == null) {//Es el dato ingresado valido?
+         return false;  //no hace nada si es nulo, ya que esta vacio
         }
-    Employees employeeExists = search(updatedemployee.getId());
+    Employees employeeExists = search(updatedemployee.getId());//Busca si el empleado ya esta en la lista
     
     if (employeeExists != null) {
         employeeExists.setPhone(updatedemployee.getPhone());
         employeeExists.setEmail(updatedemployee.getEmail());
         employeeExists.setPosition(updatedemployee.getPosition());
         employeeExists.setSalary(updatedemployee.getSalary());
+        return true; // devuelve true si se actualiza correctamente
     }
-        return false;
+        return false; //Este se usa si al buscar al empleado, no se encuentra, por lo tanto es inactualizable
 }
 //------------ELIMINAR
     @Override
@@ -56,10 +57,11 @@ public class EmployeeManagement implements Method<Employees>{
     Employees employeeExists = search(deletedemployee.getId());
     
     if (employeeExists != null) {
-        listE.remove(employeeExists);   
-        }   
+        listE.remove(employeeExists); 
         return true;
-    }
+    }   
+return false;  
+}
 //------------BUSCAR  
     @Override
     public Employees search(Object id) {
