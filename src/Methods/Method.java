@@ -11,12 +11,12 @@ package Methods;
  */
 public interface Method<T> {
     
-    public boolean add(T t);
+    public boolean add(T t) throws Exception;
     
-    public boolean update(T t);
+    public boolean update(T t)throws Exception;
     
-    public boolean delete(T t);
+    public boolean delete(T t)throws Exception;
     
-    public T search(Object id);
+    public T search(Object id)throws Exception;
     
 }
