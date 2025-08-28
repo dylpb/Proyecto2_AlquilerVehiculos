@@ -486,8 +486,7 @@ try {
         
         if (encontrado != null) {
             // Abrir el formulario FrmFindEmployee y pasarle el empleado encontrado
-            FrmFindEmployee frm = new FrmFindEmployee(encontrado, employeeManagement, modelEmployees);
-            frm.setVisible(true);
+            
         } else {
             throw new Exception("No se encontró ningún empleado con esa cédula.");
         }

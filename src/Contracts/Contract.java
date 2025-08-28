@@ -5,6 +5,7 @@
 package Contracts;
 import Persons.Clients;
 import Vehicles.Vehicle;
+import Vehicles.VehicleEnumStade;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 /**
@@ -22,7 +23,7 @@ public class Contract {
     private String status; // "Active", "Finished", "Canceled"
 
     // Constructor
-    public Contract(int contractNumber, Clients client, Vehicle vehicle, LocalDate startDate, LocalDate endDate) {
+    public Contract(int contractNumber, Clients client, Vehicle vehicle, LocalDate startDate, LocalDate endDate) throws Exception {
         this.contractNumber = contractNumber;
         this.client = client;
         this.vehicle = vehicle;
@@ -31,13 +32,13 @@ public class Contract {
         this.status = "Active"; // When created, the contract starts as Active
         calculateTotalAmount();
         // Set vehicle as unavailable
-        this.vehicle.setAvailable(false);
+        this.vehicle.setStatus(VehicleEnumStade.NOT_AVAILABLE);
     }
 
     // Calculate the total amount based on daily rate and rental days
     private void calculateTotalAmount() {
         long days = ChronoUnit.DAYS.between(startDate, endDate);
-        this.totalAmount = days * vehicle.getDailyRate();
+        this.totalAmount = days * vehicle.getDailtRate();
     }
 
     // Getters
@@ -50,13 +51,13 @@ public class Contract {
     public String getStatus() { return status; }
 
     // Change contract status
-    public void setStatus(String status) { 
-        this.status = status; 
-        // If finished or canceled, free the vehicle
-        if(status.equals("Finished") || status.equals("Canceled")){
-            vehicle.setAvailable(true);
-        }
+  public void setStatus(String status) throws Exception { 
+    this.status = status; 
+    // If finished or canceled, free the vehicle
+    if(status.equals("Finished") || status.equals("Canceled")){
+        vehicle.setStatus(VehicleEnumStade.AVAILABLE);
     }
+}
 
     @Override
     public String toString() {

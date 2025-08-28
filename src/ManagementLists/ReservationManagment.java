@@ -8,6 +8,7 @@ import Methods.Method;
 import Persons.Clients;
 import Reservers.Reserve;
 import Vehicles.Vehicle;
+import Vehicles.VehicleEnumStade;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class ReservationManagment implements Method<Reserve>{
 
         // Si pasa todas las validaciones, se confirma
         newReserve.setStatus("CONFIRMADA");
-        newReserve.getVehicle().setAvailable(false); 
+        newReserve.getVehicle().setStatus(VehicleEnumStade.NOT_AVAILABLE);
         reservations.add(newReserve);
         return true;
     }
@@ -86,7 +87,7 @@ public class ReservationManagment implements Method<Reserve>{
         if (toDelete.getStartDate().isAfter(LocalDate.now())) {
             reservations.remove(toDelete);
             toDelete.setStatus("CANCELADA");
-            toDelete.getVehicle().setAvailable(true);
+            toDelete.getVehicle().setStatus(VehicleEnumStade.AVAILABLE);
             return true;
         }
         throw new Exception("No se puede cancelar la reserva, ya ha iniciado o es inválida.");
@@ -114,9 +115,9 @@ public class ReservationManagment implements Method<Reserve>{
 
     // ------------ CONFIRMAR RESERVA (si estaba en espera)
     public boolean confirmReservation(Reserve r) throws Exception {
-        if (r != null && r.getStatus().equals("EN_ESPERA") && isVehicleAvailable(r.getVehicle(), r.getStartDate(), r.getEndDate())) {
+        if (r != null && r.getStatus().equals("DISPONIBLE") && isVehicleAvailable(r.getVehicle(), r.getStartDate(), r.getEndDate())) {
             r.setStatus("CONFIRMADA");
-            r.getVehicle().setAvailable(false);
+            r.getVehicle().setStatus(VehicleEnumStade.NOT_AVAILABLE);
             reservations.add(r);
             waitingQueue.remove(r);
             return true;

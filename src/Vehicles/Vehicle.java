@@ -12,17 +12,22 @@ public class Vehicle {
     private int year;
     private VehicleTypeEnum type;  
     private VehicleEnumStade status;
+    private double dailyRate;
 
- public Vehicle(String plate, String brand, String model, int year, VehicleTypeEnum type, VehicleEnumStade status) throws Exception {
+ public Vehicle(String plate, String brand, String model,double dailyRate, int year, VehicleTypeEnum type, VehicleEnumStade status) throws Exception {
         this.plate = plate;
         this.brand = brand;
         this.model = model;
+        this.dailyRate = dailyRate;
         setYear(year);   // validación incluida en el setter
         setType(type);   // validación incluida en el setter
         setStatus(status); // validación incluida en el setter
     }
 
-   
+ public double getDailtRate(){
+     return dailyRate;
+ }  
+ 
     public String getPlate() {
         return plate;
     }
@@ -52,6 +57,10 @@ public class Vehicle {
         this.model = model;
     }
 
+    public void setDailyRate(double dailyRate){
+        this.dailyRate=dailyRate;
+    }
+    
     public void setYear(int year) throws Exception {
         int currentYear = Year.now().getValue();
         if (year > currentYear) {
